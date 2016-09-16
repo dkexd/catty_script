@@ -12,16 +12,18 @@ f = open(name,'w+')
 
 
 from serial import Serial
-os.system("dmesg | grep ttyUSB")
-usbport = raw_input("Type USB port number (press Enter for USB0)\n")
-if (usbport == ""):
-	usbport = "0"
-string = "/dev/ttyUSB" + usbport
-baud = raw_input("Type baudrate (press Enter for 74880) \n")
-if (baud == ""):
-	baud = 74880
-elif (baud == "1"):
-	baud = 115200
+#os.system("dmesg | grep ttyUSB")
+#usbport = raw_input("Type USB port number (press Enter for USB0)\n")
+#if (usbport == ""):
+#	usbport = "0"
+#string = "/dev/ttyUSB" + usbport
+#baud = raw_input("Type baudrate (press Enter for 74880) \n")
+#if (baud == ""):
+#	baud = 74880
+#elif (baud == "1"):
+#	baud = 115200
+string = "/dev/ttyUSB0"
+baud = 115200
 dev = Serial(string, baud)
 while True:
 	c = dev.read(1)
